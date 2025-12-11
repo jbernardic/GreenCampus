@@ -1,0 +1,178 @@
+﻿
+@{
+    ViewData["Title"] = "StartYourJourney";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Start Your Journey - GreenCampus</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/journey.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid px-4">
+                <a class="navbar-brand d-flex align-items-center" asp-area="" asp-controller="Home" asp-action="Index">
+                    <span class="logo-icon">🌱</span>
+                    <span class="brand-text">GreenCampus</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Activities" asp-action="Index">ACTIVITIES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Rewards" asp-action="Index">REWARDS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="About" asp-action="Index">ABOUT</a>
+                        </li>
+                        <li class="nav-item ms-3">
+                            <a class="btn btn-language" href="#">EN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-join" asp-area="" asp-controller="Account" asp-action="Login">SIGN IN</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="journey-hero">
+        <div class="journey-overlay"></div>
+        <div class="container">
+            <div class="row align-items-center min-vh-100 py-5">
+                <div class="col-lg-6 text-white position-relative" style="z-index: 2;">
+                    <div class="journey-info">
+                        <h1 class="journey-title">Start Your Eco Journey Today</h1>
+                        <p class="journey-description">Join thousands of students making a real difference. Participate in activities, earn Green Tokens, and help create a sustainable future for our campus and planet.</p>
+
+                        <div class="journey-benefits mt-4">
+                            <div class="benefit-item">
+                                <span class="benefit-icon">🌍</span>
+                                <div class="benefit-text">
+                                    <h4>Make Real Impact</h4>
+                                    <p>Every action counts towards a greener campus</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon">🏆</span>
+                                <div class="benefit-text">
+                                    <h4>Earn Rewards</h4>
+                                    <p>Get Green Tokens for every eco-activity</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon">🤝</span>
+                                <div class="benefit-text">
+                                    <h4>Join Community</h4>
+                                    <p>Connect with like-minded eco-warriors</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 position-relative" style="z-index: 2;">
+                    <div class="signup-card">
+                        <div class="card-header-custom">
+                            <h2 class="card-title">Create Your Account</h2>
+                            <p class="card-subtitle">Start making a difference in minutes</p>
+                        </div>
+
+                        <form asp-controller="Account" asp-action="Register" method="post" class="signup-form">
+                            <div class="form-group-custom">
+                                <label for="fullName" class="form-label-custom">Full Name</label>
+                                <input type="text" class="form-control-custom" id="fullName" name="FullName" placeholder="Enter your full name" required />
+                            </div>
+
+                            <div class="form-group-custom">
+                                <label for="email" class="form-label-custom">Email Address</label>
+                                <input type="email" class="form-control-custom" id="email" name="Email" placeholder="your.email@university.edu" required />
+                            </div>
+
+                            <div class="form-group-custom">
+                                <label for="studentId" class="form-label-custom">Student ID</label>
+                                <input type="text" class="form-control-custom" id="studentId" name="StudentId" placeholder="Your student ID number" required />
+                            </div>
+
+                            <div class="form-group-custom">
+                                <label for="password" class="form-label-custom">Password</label>
+                                <input type="password" class="form-control-custom" id="password" name="Password" placeholder="Create a strong password" required />
+                            </div>
+
+                            <div class="form-group-custom">
+                                <label for="confirmPassword" class="form-label-custom">Confirm Password</label>
+                                <input type="password" class="form-control-custom" id="confirmPassword" name="ConfirmPassword" placeholder="Re-enter your password" required />
+                            </div>
+
+                            <div class="form-check-custom">
+                                <input type="checkbox" class="form-check-input-custom" id="terms" required />
+                                <label class="form-check-label-custom" for="terms">
+                                    I agree to the <a href="#" class="terms-link">Terms & Conditions</a> and <a href="#" class="terms-link">Privacy Policy</a>
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn-submit">
+                                <span>Create Account</span>
+                                <span class="btn-icon">🚀</span>
+                            </button>
+                        </form>
+
+                        <div class="divider">
+                            <span>or</span>
+                        </div>
+
+                        <div class="social-login">
+                            <button type="button" class="btn-social btn-google">
+                                <span class="social-icon">🔍</span>
+                                Continue with Google
+                            </button>
+                            <button type="button" class="btn-social btn-microsoft">
+                                <span class="social-icon">🪟</span>
+                                Continue with Microsoft
+                            </button>
+                        </div>
+
+                        <div class="signin-link">
+                            Already have an account? <a asp-controller="Account" asp-action="Login">Sign In</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">🌱</span>
+                    <span class="brand-text">GreenCampus</span>
+                </div>
+                <p class="footer-slogan">Building a sustainable future, one action at a time</p>
+                <p class="footer-copyright">&copy; 2025 - GreenCampus - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>
+
