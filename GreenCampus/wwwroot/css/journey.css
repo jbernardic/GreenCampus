@@ -288,12 +288,13 @@
 /* Social Login */
 .social-login {
     display: flex;
-    gap: 1rem;
+    justify-content: center;
     margin-bottom: 1.5rem;
 }
 
 .btn-social {
-    flex: 1;
+    width: 100%;
+    max-width: 400px;
     padding: 0.9rem 1.5rem;
     border: 2px solid #E0E0E0;
     border-radius: 10px;
@@ -392,8 +393,8 @@
         padding: 1.5rem;
     }
 
-    .social-login {
-        flex-direction: column;
+    .btn-social {
+        max-width: 100%;
     }
 }
 
