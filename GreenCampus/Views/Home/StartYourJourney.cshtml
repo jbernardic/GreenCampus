@@ -1,0 +1,230 @@
+﻿@{
+    ViewData["Title"] = "StartYourJourney";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Start Your Journey - GreenCampus</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/journey.css" asp-append-version="true" />
+</head>
+<body>
+
+    <section class="journey-hero-simple">
+        <div class="journey-overlay"></div>
+        <div class="container">
+            <div class="hero-content-center">
+                <h1 class="hero-title-center">Start Your Eco Journey Today</h1>
+                <p class="hero-description-center">Join thousands of students making a real difference. Track activities, earn Green Tokens, compete in challenges, and help create a sustainable future.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-showcase">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="features-main-title">Everything You Need for Your Eco Journey</h2>
+                <p class="features-subtitle">Powerful features to help you make a real environmental impact</p>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <!-- Activity Tracking -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-box">
+                        <div class="feature-box-icon">📝</div>
+                        <h3 class="feature-box-title">Activity Management</h3>
+                        <p class="feature-box-text">Add and categorize eco-activities like recycling, tree planting, and campus clean-ups with date and time tracking.</p>
+                        <ul class="feature-list">
+                            <li>✓ Multiple activity categories</li>
+                            <li>✓ Date & time scheduling</li>
+                            <li>✓ Quick activity logging</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Progress Tracking -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-box">
+                        <div class="feature-box-icon">📊</div>
+                        <h3 class="feature-box-title">Progress Analytics</h3>
+                        <p class="feature-box-text">Monitor your environmental impact with comprehensive daily, weekly, and monthly statistics and visual charts.</p>
+                        <ul class="feature-list">
+                            <li>✓ Visual charts & graphs</li>
+                            <li>✓ Category breakdowns</li>
+                            <li>✓ Impact measurements</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Token Rewards -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-box">
+                        <div class="feature-box-icon">🪙</div>
+                        <h3 class="feature-box-title">Green Token Rewards</h3>
+                        <p class="feature-box-text">Earn internal tokens for every eco-activity you complete. Track your earnings and redeem for exclusive rewards.</p>
+                        <ul class="feature-list">
+                            <li>✓ Points per activity</li>
+                            <li>✓ Token history tracking</li>
+                            <li>✓ Reward redemption</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Team Activities -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-box">
+                        <div class="feature-box-icon">👥</div>
+                        <h3 class="feature-box-title">Team Collaboration</h3>
+                        <p class="feature-box-text">Join teams, track group activities, compete on leaderboards, and achieve collective environmental goals together.</p>
+                        <ul class="feature-list">
+                            <li>✓ Team leaderboards</li>
+                            <li>✓ Group challenges</li>
+                            <li>✓ Shared goals</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Educational Content -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-box">
+                        <div class="feature-box-icon">🎓</div>
+                        <h3 class="feature-box-title">Eco Education</h3>
+                        <p class="feature-box-text">Access educational modules about environmental sustainability, eco tips, and personalized recommendations.</p>
+                        <ul class="feature-list">
+                            <li>✓ Educational articles</li>
+                            <li>✓ Sustainability tips</li>
+                            <li>✓ Best practices guide</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Reports & Stats -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-box">
+                        <div class="feature-box-icon">📄</div>
+                        <h3 class="feature-box-title">Reports & Export</h3>
+                        <p class="feature-box-text">Generate detailed reports about your environmental impact and export data in PDF or Excel format.</p>
+                        <ul class="feature-list">
+                            <li>✓ Impact reports</li>
+                            <li>✓ PDF export</li>
+                            <li>✓ Excel spreadsheets</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Notifications -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-box">
+                        <div class="feature-box-icon">🔔</div>
+                        <h3 class="feature-box-title">Smart Reminders</h3>
+                        <p class="feature-box-text">Never miss an activity with smart notifications and reminders for scheduled eco-activities.</p>
+                        <ul class="feature-list">
+                            <li>✓ Activity reminders</li>
+                            <li>✓ Progress notifications</li>
+                            <li>✓ Challenge alerts</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Challenges -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-box">
+                        <div class="feature-box-icon">🎯</div>
+                        <h3 class="feature-box-title">Interactive Challenges</h3>
+                        <p class="feature-box-text">Participate in exciting eco-challenges, mini-games, and earn special rewards for completing goals.</p>
+                        <ul class="feature-list">
+                            <li>✓ Weekly challenges</li>
+                            <li>✓ Achievement badges</li>
+                            <li>✓ Special rewards</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Signup Card in Features Section -->
+            <div class="signup-card-container">
+                <div class="signup-card">
+                    <div class="card-header-custom">
+                        <h2 class="card-title">Create Your Account</h2>
+                        <p class="card-subtitle">Start making a difference in minutes</p>
+                    </div>
+
+                    <form asp-controller="Account" asp-action="Register" method="post" class="signup-form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group-custom">
+                                    <label for="fullName" class="form-label-custom">Full Name</label>
+                                    <input type="text" class="form-control-custom" id="fullName" name="FullName" placeholder="Enter your full name" required />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group-custom">
+                                    <label for="email" class="form-label-custom">Email Address</label>
+                                    <input type="email" class="form-control-custom" id="email" name="Email" placeholder="your.email@university.edu" required />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group-custom">
+                                    <label for="studentId" class="form-label-custom">Student ID</label>
+                                    <input type="text" class="form-control-custom" id="studentId" name="StudentId" placeholder="Your student ID number" required />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group-custom">
+                                    <label for="password" class="form-label-custom">Password</label>
+                                    <input type="password" class="form-control-custom" id="password" name="Password" placeholder="Create a strong password" required />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group-custom">
+                            <label for="confirmPassword" class="form-label-custom">Confirm Password</label>
+                            <input type="password" class="form-control-custom" id="confirmPassword" name="ConfirmPassword" placeholder="Re-enter your password" required />
+                        </div>
+
+                        <div class="form-check-custom">
+                            <input type="checkbox" class="form-check-input-custom" id="terms" required />
+                            <label class="form-check-label-custom" for="terms">
+                                I agree to the <a href="#" class="terms-link">Terms & Conditions</a> and <a href="#" class="terms-link">Privacy Policy</a>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-submit">
+                            <span>Create Account</span>
+                            <span class="btn-icon">🚀</span>
+                        </button>
+                    </form>
+
+                    <div class="divider">
+                        <span>or</span>
+                    </div>
+
+                    <div class="social-login">
+                        <button type="button" class="btn-social btn-google">
+                            <span class="social-icon">🔍</span>
+                            Continue with Google
+                        </button>
+                    </div>
+
+                    <div class="signin-link">
+                        Already have an account? <a asp-controller="Account" asp-action="Login">Sign In</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>
