@@ -11,13 +11,13 @@ namespace GreenCampus.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
 
-        public string FirstName { get; set; } = null!;
+        public required string FirstName { get; set; }
 
-        public string LastName { get; set; } = null!;
+        public required string LastName { get; set; }
 
-        public string Email { get; set; } = null!;
+        public required string Email { get; set; }
 
-        public string PasswordHash { get; set; } = null!;
+        public required string PasswordHash { get; set; }
 
         public bool IsAdmin { get; set; }
 
