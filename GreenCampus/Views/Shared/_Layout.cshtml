@@ -37,9 +37,23 @@
                         <li class="nav-item ms-3">
                             <a class="btn btn-language" href="#">EN</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="btn btn-join" asp-area="" asp-controller="Account" asp-action="Join">JOIN / SIGN IN</a>
-                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="btn btn-dashboard" asp-area="" asp-controller="User" asp-action="Profile">PROFILE</a>
+                            </li>
+                            <li class="nav-item">
+                                <form asp-area="" asp-controller="User" asp-action="Logout" method="post" class="d-inline">
+                                    <button type="submit" class="btn btn-join">LOGOUT</button>
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="btn btn-join" asp-area="" asp-controller="User" asp-action="Register">JOIN / SIGN IN</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

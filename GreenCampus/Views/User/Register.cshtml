@@ -1,0 +1,81 @@
+﻿@model GreenCampus.Models.UserVM
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/register.css" asp-append-version="true" />
+
+<section class="register-hero">
+    <div class="register-overlay"></div>
+    <div class="container">
+        <div class="register-content">
+            <div class="register-card">
+                <div class="register-header">
+                    <div class="logo-badge">🌱</div>
+                    <h1 class="register-title">Create Your Account</h1>
+                    <p class="register-subtitle">Join GreenCampus and start making a difference today</p>
+                </div>
+
+                <form asp-action="Register" method="post" class="register-form">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group-register">
+                                <label asp-for="FirstName" class="form-label-register">First Name</label>
+                                <input asp-for="FirstName" class="form-control-register" placeholder="Enter your first name" />
+                                <span asp-validation-for="FirstName" class="text-danger-custom"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group-register">
+                                <label asp-for="LastName" class="form-label-register">Last Name</label>
+                                <input asp-for="LastName" class="form-control-register" placeholder="Enter your last name" />
+                                <span asp-validation-for="LastName" class="text-danger-custom"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group-register">
+                        <label asp-for="Email" class="form-label-register">Email Address</label>
+                        <input asp-for="Email" class="form-control-register" placeholder="your.email@university.edu" type="email" />
+                        <span asp-validation-for="Email" class="text-danger-custom"></span>
+                    </div>
+
+                    <div class="form-group-register">
+                        <label asp-for="Password" class="form-label-register">Password</label>
+                        <input asp-for="Password" class="form-control-register" placeholder="Create a strong password" type="password" />
+                        <span asp-validation-for="Password" class="text-danger-custom"></span>
+                    </div>
+
+                    <button type="submit" class="btn-register-submit">
+                        <span>Create Account</span>
+                        <span class="btn-icon-register">🚀</span>
+                    </button>
+                </form>
+
+                <div class="divider-register">
+                    <span>or</span>
+                </div>
+
+                <div class="social-login-register">
+                    <button type="button" class="btn-social-register">
+                        <span class="social-icon-register">🔍</span>
+                        Continue with Google
+                    </button>
+                </div>
+
+                <div class="signin-link-register">
+                    Already have an account? <a asp-controller="User" asp-action="Login">Sign In</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
