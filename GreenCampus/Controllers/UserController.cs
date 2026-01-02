@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using GreenCampus.Facades;
 
 namespace GreenCampus.Controllers
 {
@@ -11,11 +12,15 @@ namespace GreenCampus.Controllers
     {
         private readonly IUserService _userService;
         private readonly DatabaseContext db;
+        private readonly RegistrationFacade _registrationFacade;
+        private readonly AuthenticationFacade _authenticationFacade;
 
-        public UserController(IUserService userService, DatabaseContext db)
+        public UserController(IUserService userService, DatabaseContext db, RegistrationFacade registrationFacade, AuthenticationFacade authenticationFacade)
         {
             _userService = userService;
             this.db = db;
+            _registrationFacade = registrationFacade;
+            _authenticationFacade = authenticationFacade;
         }
         public IActionResult Index()
         {
@@ -33,7 +38,7 @@ namespace GreenCampus.Controllers
             if (!ModelState.IsValid) return View(model);
             try
             {
-                _userService.Register(model);
+                _registrationFacade.RegisterUser(model);
                 return RedirectToAction("Index", "Home");
 
             }
@@ -57,24 +62,7 @@ namespace GreenCampus.Controllers
             if (!ModelState.IsValid) return View();
             try
             {
-                var user = _userService.Login(email, password);
-                var claims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Email, user.Email),
-                    new Claim(ClaimTypes.Role, user.IsAdmin ? "Admin" : "User")
-                };
-                var claimIdentity = new ClaimsIdentity(
-                    claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                var authProperties = new AuthenticationProperties();
-
-                var task = Task.Run(() =>
-                {
-                    HttpContext.SignInAsync(
-                    CookieAuthenticationDefaults.AuthenticationScheme,
-                    new ClaimsPrincipal(claimIdentity),
-                    authProperties);
-                });
-                task.GetAwaiter().GetResult();
+                _authenticationFacade.LoginUser(HttpContext, email, password);
                 return RedirectToAction("Index", "Home");
             }
             catch (Exception ex)

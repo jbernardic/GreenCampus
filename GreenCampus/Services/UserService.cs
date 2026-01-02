@@ -8,9 +8,11 @@ namespace GreenCampus.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
-        public UserService(IUserRepository userRepository)
+        private readonly IUserFactory _userFactory;
+        public UserService(IUserRepository userRepository, IUserFactory userFactory)
         {
             _userRepository = userRepository;
+            _userFactory = userFactory;
         }
         public User Login(string email, string password)
         {
@@ -38,15 +40,7 @@ namespace GreenCampus.Services
             //var salt = PasswordHashProvider.GetSalt();
             //var pwdHash = PasswordHashProvider.GetHash(model.Password, salt);
 
-            var user = new User
-            {
-                FirstName = model.FirstName,
-                LastName = model.LastName,
-                Email = model.Email,
-                IsAdmin = false,
-                PasswordHash = model.Password, // Hashed password should be stored (implement hashing)
-
-            };
+            var user = _userFactory.CreateUser(model, false);
             _userRepository.Add(user);
             return user;
         }

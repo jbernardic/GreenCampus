@@ -1,7 +1,11 @@
+using GreenCampus.AuthStrategies;
+using GreenCampus.Facades;
+using GreenCampus.Factories;
 using GreenCampus.Interfaces;
 using GreenCampus.Models;
 using GreenCampus.Repositories;
 using GreenCampus.Services;
+using GreenCampus.Services.Email;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +17,14 @@ builder.Services.AddDbContext<DatabaseContext>();
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<RegistrationFacade>();
+builder.Services.AddScoped<IUserFactory, UserFactory>();
+builder.Services.AddScoped<IAuthStrategy, PasswordAuthStrategy>();
+builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<AuthenticationFacade>();
+builder.Services.AddScoped<IEmailService, EmailService>();
+
+
 
 // Cookie Authentication
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
