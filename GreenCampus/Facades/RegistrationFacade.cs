@@ -14,7 +14,7 @@ namespace GreenCampus.Facades
             _emailService = emailService;
         }
 
-        public void RegisterUser(UserVM model)
+        public virtual void RegisterUser(UserVM model)
         {
             var user = _userService.Register(model);
             _emailService.SendWelcomeEmail(user.Email);

@@ -12,7 +12,7 @@ namespace GreenCampus.Services
             _strategy = strategy;
         }
 
-        public User Login(string email, string password)
+        public virtual User Login(string email, string password)
         {
             var user = _strategy.Authenticate(email, password);
             if (user == null)

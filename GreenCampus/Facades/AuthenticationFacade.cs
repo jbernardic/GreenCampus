@@ -15,7 +15,7 @@ namespace GreenCampus.Facades
             _authService = authService;
         }
 
-        public void LoginUser(HttpContext httpContext, string email, string password)
+        public virtual void LoginUser(HttpContext httpContext, string email, string password)
         {
             var user = _authService.Login(email, password);
             var claims = new List<Claim>
