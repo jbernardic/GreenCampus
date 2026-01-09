@@ -11,29 +11,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout repo
+      # Checkout repo
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2️⃣ Setup .NET SDK
+      # Setup .NET SDK
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '8.0.x'
 
-      # 3️⃣ Restore dependencies
+      # Restore dependencies
       - name: Restore dependencies
         run: dotnet restore
 
-      # 4️⃣ Build solution
+      # Build solution
       - name: Build
         run: dotnet build --no-restore --configuration Release
 
-      # 5️⃣ Run tests with coverage
+      # Run tests with coverage
       - name: Test with coverage
         run: dotnet test --configuration Release --collect:"XPlat Code Coverage" --results-directory ./TestResults
 
-      # 6️⃣ Publish coverage to Codecov
+      # Publish coverage to Codecov
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
