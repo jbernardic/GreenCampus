@@ -1,0 +1,41 @@
+name: Test Coverage
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout repo
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Setup .NET SDK
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'
+
+      # Restore dependencies
+      - name: Restore dependencies
+        run: dotnet restore
+
+      # Build solution
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
+
+      # Run tests with coverage
+      - name: Test with coverage
+        run: dotnet test --configuration Release --collect:"XPlat Code Coverage" --results-directory ./TestResults
+
+      # Publish coverage to Codecov
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./TestResults/**/coverage.cobertura.xml
+          fail_ci_if_error: true
