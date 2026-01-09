@@ -8,9 +8,9 @@ namespace GreenCampus.Controllers
     {
         private readonly DatabaseContext _context;
 
-        public GreenActivitiesController()
+        public GreenActivitiesController(DatabaseContext context)
         {
-            _context = new DatabaseContext();
+            _context = context;
         }
 
         // GET: GreenActivities
