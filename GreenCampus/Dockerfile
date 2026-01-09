@@ -19,4 +19,4 @@ RUN mkdir /app/data
 
 COPY --from=build /app/publish .
 
-ENTRYPOINT ["dotnet", "GreenCampus.csproj"]
+ENTRYPOINT ["dotnet", "GreenCampus.dll"]
