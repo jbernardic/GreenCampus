@@ -18,4 +18,8 @@
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.22" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Include=".github\workflow\test-coverage.yml" />
+	</ItemGroup>
+
 </Project>
