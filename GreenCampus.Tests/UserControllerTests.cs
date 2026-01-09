@@ -24,7 +24,6 @@ namespace GreenCampus.Tests
             _dbMock = new Mock<DatabaseContext>();
             _registrationFacadeMock = new Mock<RegistrationFacade>(MockBehavior.Strict, _userServiceMock.Object, Mock.Of<IEmailService>());
 
-            // ISPRAVAK: Kreiraj AuthService mock s potrebnim konstruktorom
             var authServiceMock = new Mock<AuthService>(Mock.Of<IAuthStrategy>());
             _authenticationFacadeMock = new Mock<AuthenticationFacade>(MockBehavior.Strict, authServiceMock.Object);
 

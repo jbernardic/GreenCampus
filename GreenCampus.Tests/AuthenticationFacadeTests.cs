@@ -27,15 +27,12 @@ namespace GreenCampus.Tests
             _serviceProviderMock = new Mock<IServiceProvider>();
             _signInAsyncCalled = false;
 
-            // Setup service provider to return our authentication service
             _serviceProviderMock
                 .Setup(sp => sp.GetService(typeof(IAuthenticationService)))
                 .Returns(_authenticationServiceMock.Object);
 
-            // Setup HttpContext to return our service provider
             _httpContextMock.SetupGet(c => c.RequestServices).Returns(_serviceProviderMock.Object);
 
-            // Setup SignInAsync to set the flag
             _authenticationServiceMock
                 .Setup(a => a.SignInAsync(
                     It.IsAny<HttpContext>(),
