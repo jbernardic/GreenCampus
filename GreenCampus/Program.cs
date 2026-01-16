@@ -49,6 +49,21 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+// Anti-Clickjacking
+
+app.Use(async (context, next) =>
+{
+    context.Response.Headers.Append("X-Frame-Options", "DENY");
+    // Or use "SAMEORIGIN" if you need to allow framing from same origin
+
+    // Optional: Add modern CSP header as well
+    context.Response.Headers.Append("Content-Security-Policy", "frame-ancestors 'none'");
+    // Or use "frame-ancestors 'self'" for same-origin only
+
+    await next();
+});
+
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
