@@ -15,9 +15,12 @@ namespace GreenCampus.Services
         public virtual User Login(string email, string password)
         {
             var user = _strategy.Authenticate(email, password);
+
             if (user == null)
-                throw new Exception("Invalid email or password");
+                throw new UnauthorizedAccessException("Invalid email or password");
+
             return user;
         }
+
     }
 }

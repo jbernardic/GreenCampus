@@ -10,7 +10,7 @@ namespace GreenCampus.Tests
 {
     public class UserRepositoryTests
     {
-        private Mock<DbSet<User>> CreateMockDbSet(List<User> data)
+        private static Mock<DbSet<User>> CreateMockDbSet(List<User> data)
         {
             var queryable = data.AsQueryable();
             var mockSet = new Mock<DbSet<User>>();

@@ -3,7 +3,7 @@ using System.Security.Cryptography;
 
 namespace TripManagerWebApp.Security
 {
-    public class PasswordHashProvider
+    public static class PasswordHashProvider
     {
         public static string GetSalt()
         {

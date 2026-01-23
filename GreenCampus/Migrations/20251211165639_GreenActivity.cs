@@ -16,7 +16,7 @@ namespace GreenCampus.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-
+            //idk
         }
     }
 }

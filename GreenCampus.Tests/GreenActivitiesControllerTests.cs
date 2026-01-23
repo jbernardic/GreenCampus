@@ -12,7 +12,7 @@ namespace GreenCampus.Tests
 {
     public class GreenActivitiesControllerTests
     {
-        private Mock<DbSet<GreenActivity>> CreateMockDbSet(List<GreenActivity> data)
+        private static Mock<DbSet<GreenActivity>> CreateMockDbSet(List<GreenActivity> data)
         {
             var queryable = data.AsQueryable();
             var mockSet = new Mock<DbSet<GreenActivity>>();

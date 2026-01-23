@@ -19,9 +19,7 @@ namespace GreenCampus.Controllers
             var activities = await _context.GreenActivities.ToListAsync();
             return View(activities);
         }
-
-        // GET: GreenActivities/Details/5
-        public async Task<IActionResult> Details(int? id)
+        private async Task<IActionResult> ActivityViewOrNotFoundAsync(int? id, string viewName)
         {
             if (id == null)
             {
@@ -29,15 +27,29 @@ namespace GreenCampus.Controllers
             }
 
             var activity = await _context.GreenActivities
-                .FirstOrDefaultAsync(m => m.GreenActivityId == id);
+                .FirstOrDefaultAsync(a => a.GreenActivityId == id);
 
             if (activity == null)
             {
                 return NotFound();
             }
 
-            return View(activity);
+            return View(viewName, activity);
         }
+
+
+        // GET: GreenActivities/Details/5
+        public Task<IActionResult> Details(int? id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return Task.FromResult<IActionResult>(BadRequest(ModelState));
+            }
+
+            return ActivityViewOrNotFoundAsync(id, "Details");
+        }
+
+
 
         // GET: GreenActivities/Create
         public IActionResult Create()
@@ -62,6 +74,11 @@ namespace GreenCampus.Controllers
         // GET: GreenActivities/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             if (id == null)
             {
                 return NotFound();
@@ -72,8 +89,10 @@ namespace GreenCampus.Controllers
             {
                 return NotFound();
             }
+
             return View(activity);
         }
+
 
         // POST: GreenActivities/Edit/5
         [HttpPost]
@@ -109,36 +128,38 @@ namespace GreenCampus.Controllers
         }
 
         // GET: GreenActivities/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
+            if (!ModelState.IsValid)
             {
-                return NotFound();
+                return Task.FromResult<IActionResult>(BadRequest(ModelState));
             }
 
-            var activity = await _context.GreenActivities
-                .FirstOrDefaultAsync(m => m.GreenActivityId == id);
-            if (activity == null)
-            {
-                return NotFound();
-            }
-
-            return View(activity);
+            return ActivityViewOrNotFoundAsync(id, "Delete");
         }
+
+
 
         // POST: GreenActivities/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             var activity = await _context.GreenActivities.FindAsync(id);
             if (activity != null)
             {
                 _context.GreenActivities.Remove(activity);
                 await _context.SaveChangesAsync();
             }
+
             return RedirectToAction(nameof(Index));
         }
+
 
         private bool ActivityExists(int id)
         {

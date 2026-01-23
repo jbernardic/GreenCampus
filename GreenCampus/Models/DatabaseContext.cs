@@ -9,8 +9,8 @@ namespace GreenCampus.Models
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<GreenActivity> GreenActivities { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlite($"Data Source=GreenCampus.db");
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+            => optionsBuilder.UseSqlite($"Data Source=GreenCampus.db");
     }
 
 }
